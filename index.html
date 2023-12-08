@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Poppins:wght@400;700;800&display=swap" rel="stylesheet">
+    <title>Pedido</title>
+</head>
+<style>
+    body{ 
+        background-color: red;
+        font-family: 'Inter', sans-serif;
+        font-family: 'Poppins', sans-serif;
+    }
+    .painel {
+        background-color: white;
+        width: 700px;
+        height: 700px;
+        margin: auto;
+        border-radius: 20px;
+        text-align: center;
+        padding-top: 50px;
+    }
+    #sim{
+        height: 40px;
+        width: 60px;
+        background-color: red;
+        border: 2px solid white;
+        border-radius: 10px;
+        color: white;
+        margin-left: -50px;
+        cursor: pointer;
+    }
+    #nao{
+        position: absolute;
+        height: 40px;
+        width: 60px;
+        background-color: red;
+        border: 2px solid white;
+        border-radius: 10px;
+        color: white;
+        margin-left: 10px;
+    }
+    #tocarMusica {
+        background-color: #eee;
+        border: 1px solid rgba(red, green, blue, alpha);
+        font-weight: bold;
+        font-family: 'Poppins', sans-serif;
+        padding: 6px 12px;
+    }
+</style>
+<body>
+    <div class="painel">
+        <button id="tocarMusica" onclick="tocarMusica()">Clique aqui</button>
+        <audio id="musica" src="./musicas/Proposta.mp3"></audio>
+        <h1> Nos</h1>
+        <img src="https://i.pinimg.com/originals/35/d3/05/35d3059bc9714f8903680779c96803eb.gif" alt="">
+        <h2>Aceita namorar comigo ?</h2>
+        <a href=""><button id="sim">Sim!</button></a>
+        <button onmouseover="fuja()" id="nao">Não!</button>
+
+        <!-- Adiciona um botão para tocar música -->
+        
+    </div>
+
+    <script>
+        function fuja() {
+            var botaoNao = document.getElementById("nao");
+    
+            var larguraJanela = window.innerWidth;
+            var alturaJanela = window.innerHeight;
+    
+            var maxX = larguraJanela - botaoNao.offsetWidth;
+            var maxY = alturaJanela - botaoNao.offsetHeight;
+    
+            var aleatorioX = Math.floor(Math.random() * maxX);
+            var aleatorioY = Math.floor(Math.random() * maxY);
+    
+            botaoNao.style.left = aleatorioX + 'px';
+            botaoNao.style.top = aleatorioY + 'px';
+        }
+
+        // Função para tocar a música
+        function tocarMusica() {
+            var musica = document.getElementById("musica");
+            musica.play();
+        }
+    </script>
+</body>
+</html>
